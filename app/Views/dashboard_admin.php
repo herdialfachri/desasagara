@@ -3,15 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Dashboard Admin</title>
 </head>
 <body>
-    <h1>Selamat Datang di Admin Dashboard</h1>
-    
-    <p>Ini adalah halaman dashboard untuk Admin.</p>
-
-    <form action="/logout" method="post">
-        <button type="submit">Logout</button>
-    </form>
+    <h1>Welcome to Dashboard Admin</h1>
+    <a href="<?= base_url('logout') ?>">Logout</a>
 </body>
 </html>

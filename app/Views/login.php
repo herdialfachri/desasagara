@@ -32,12 +32,17 @@
 						</div>
 						<h3 class="text-center">Selamat Datang</h3>
 						<p class="text-center mb-4">Silakan masuk untuk mendapatkan hak akses penuh</p>
-						<form action="#" class="login-form">
+						<?php if (session()->getFlashdata('msg')): ?>
+							<div class="alert alert-danger">
+								<?= session()->getFlashdata('msg'); ?>
+							</div>
+						<?php endif; ?>
+						<form action="<?= base_url('login/auth') ?>" method="post" class="login-form">
 							<div class="form-group">
-								<input type="text" class="form-control rounded-left" placeholder="Username" required>
+								<input type="text" name="username" class="form-control rounded-left" placeholder="Username" required>
 							</div>
 							<div class="form-group d-flex">
-								<input type="password" class="form-control rounded-left" placeholder="Password" required>
+								<input type="password" name="password" class="form-control rounded-left" placeholder="Password" required>
 							</div>
 							<div class="form-group">
 								<button type="submit" class="form-control btn btn-primary rounded submit px-3">Masuk</button>
