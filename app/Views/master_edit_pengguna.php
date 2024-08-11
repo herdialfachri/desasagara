@@ -12,16 +12,16 @@
     <title>Master Keuangan</title>
 
     <!-- Custom fonts for this template-->
-    <link href="dashboard/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="<?= base_url('dashboard/vendor/fontawesome-free/css/all.min.css'); ?>" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="dashboard/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="<?= base_url('dashboard/css/sb-admin-2.min.css'); ?>" rel="stylesheet">
 
     <!-- Favicon  -->
-    <link rel="icon" href="dashboard/img/logosmi.png">
+    <link rel="icon" href="<?= base_url('dashboard/img/logosmi.png'); ?>">
 </head>
 
 <body id="page-top">
@@ -60,14 +60,14 @@
 
             <!-- Nav Item - User -->
             <li class="nav-item active">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/pengguna">
                     <i class="fas fa-fw fa-users"></i>
                     <span>Pengguna</span></a>
             </li>
 
             <!-- Nav Item - User -->
             <li class="nav-item">
-                <a class="nav-link" href="/addpengguna">
+                <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-plus"></i>
                     <span>Tambah Pengguna</span></a>
             </li>
@@ -107,11 +107,24 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Hello, Douglas McGee</span>
                                 <img class="img-profile rounded-circle"
-                                    src="dashboard/img/undraw_profile.svg">
+                                    src="<?= base_url('dashboard/img/undraw_profile.svg'); ?>">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                </a>
+                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="/logout">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
@@ -143,42 +156,30 @@
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Daftar Pengguna</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Edit Pengguna</h6>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <table class="table table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Username</th>
-                                                    <th>Role</th>
-                                                    <th>Actions</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php if (!empty($users) && is_array($users)): ?>
-                                                    <?php foreach ($users as $user): ?>
-                                                        <tr>
-                                                            <td><?= esc($user['id']); ?></td>
-                                                            <td><?= esc($user['username']); ?></td>
-                                                            <td>
-                                                                <?= $user['role'] == 1 ? 'Master' : 'Admin'; ?>
-                                                            </td>
-                                                            <td>
-                                                                <a href="<?= site_url('users/edit/' . $user['id']); ?>" class="btn btn-sm btn-primary">Edit</a>
-                                                                <a href="<?= site_url('users/delete/' . $user['id']); ?>"  class="btn btn-sm btn-danger" onclick="return confirm('Apa kamu yakin ingin menghapus data ini?');">Delete</a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php endforeach; ?>
-                                                <?php else: ?>
-                                                    <tr>
-                                                        <td colspan="4">No users found.</td>
-                                                    </tr>
-                                                <?php endif; ?>
-                                            </tbody>
-                                        </table>
+                                        <form action="<?= site_url('users/update/' . $user['id']); ?>" method="post">
+                                            <div class="form-group">
+                                                <label for="username">Username:</label>
+                                                <input type="text" class="form-control" id="username" name="username" value="<?= esc($user['username']); ?>" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="password">Kata Sandi Baru</label>
+                                                <input type="password" class="form-control" id="password" name="password">
+                                                <small class="form-text text-muted">Biarkan kosong jika tidak ingin mengubah kata sandi.</small>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="role">Role:</label>
+                                                <select class="form-control" id="role" name="role" required>
+                                                    <option value="1" <?= $user['role'] == 1 ? 'selected' : ''; ?>>Master</option>
+                                                    <option value="2" <?= $user['role'] == 2 ? 'selected' : ''; ?>>Admin</option>
+                                                </select>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Update Pengguna</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -275,21 +276,21 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="dashboard/vendor/jquery/jquery.min.js"></script>
-    <script src="dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url('dashboard/vendor/jquery/jquery.min.js'); ?>"></script>
+    <script src="<?= base_url('dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="dashboard/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="<?= base_url('dashboard/vendor/jquery-easing/jquery.easing.min.js'); ?>"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="dashboard/js/sb-admin-2.min.js"></script>
+    <script src="<?= base_url('dashboard/js/sb-admin-2.min.js'); ?>"></script>
 
     <!-- Page level plugins -->
-    <script src="dashboard/vendor/chart.js/Chart.min.js"></script>
+    <script src="<?= base_url('dashboard/vendor/chart.js/Chart.min.js'); ?>"></script>
 
     <!-- Page level custom scripts -->
-    <script src="dashboard/js/demo/chart-area-demo.js"></script>
-    <script src="dashboard/js/demo/chart-pie-demo.js"></script>
+    <script src="<?= base_url('dashboard/js/demo/chart-area-demo.js'); ?>"></script>
+    <script src="<?= base_url('dashboard/js/demo/chart-pie-demo.js'); ?>"></script>
 
 </body>
 
