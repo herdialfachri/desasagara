@@ -20,5 +20,10 @@ $routes->get('/users/delete/(:num)', 'PenggunaController::delete/$1');
 $routes->get('/users/create', 'PenggunaController::create');
 $routes->post('/users/store', 'PenggunaController::store');
 
+$routes->get('/masukan', 'MasukanController::masukan');
+$routes->post('/masukan/submit', 'MasukanController::submit');
+
+
+
 
 

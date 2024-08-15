@@ -166,15 +166,15 @@
                         <h2>Jika ada pertanyaan silakan mengisi formulir dibawah ini</h2>
 
                         <!-- Contact Form -->
-                        <form>
+                        <form action="<?= site_url('masukan/submit'); ?>" method="post">
                             <div class="form-group">
-                                <input type="text" class="form-control-input" placeholder="Name" required>
+                                <input type="text" name="nama_pengunjung" class="form-control-input" placeholder="Name" required>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control-input" placeholder="Email" required>
+                                <input type="number" name="whatsapp_pengunjung" class="form-control-input" placeholder="Whatsapp" required>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control-textarea" placeholder="Message" required></textarea>
+                                <textarea name="pesan" class="form-control-textarea" placeholder="Message" required></textarea>
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="form-control-submit-button">Submit</button>

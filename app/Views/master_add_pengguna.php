@@ -55,7 +55,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+                Kredensial
             </div>
 
             <!-- Nav Item - User -->
