@@ -105,7 +105,9 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Hello, Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 medium">
+                                    Halo, <?= session()->get('username'); ?>
+                                </span>
                                 <img class="img-profile rounded-circle"
                                     src="dashboard/img/undraw_profile.svg">
                             </a>
@@ -168,7 +170,7 @@
                                                             </td>
                                                             <td>
                                                                 <a href="<?= site_url('users/edit/' . $user['id']); ?>" class="btn btn-sm btn-primary">Edit</a>
-                                                                <a href="<?= site_url('users/delete/' . $user['id']); ?>"  class="btn btn-sm btn-danger" onclick="return confirm('Apa kamu yakin ingin menghapus data ini?');">Delete</a>
+                                                                <a href="<?= site_url('users/delete/' . $user['id']); ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apa kamu yakin ingin menghapus data ini?');">Delete</a>
                                                             </td>
                                                         </tr>
                                                     <?php endforeach; ?>
@@ -184,47 +186,6 @@
                             </div>
                         </div>
 
-                        <!-- Pie Chart -->
-                        <div class="col-xl-4 col-lg-5">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-pie pt-4 pb-2">
-                                        <canvas id="myPieChart"></canvas>
-                                    </div>
-                                    <div class="mt-4 text-center small">
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-primary"></i> Direct
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-success"></i> Social
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i> Referral
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                 </div>
