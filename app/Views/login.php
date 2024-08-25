@@ -27,6 +27,14 @@
 			<div class="row justify-content-center">
 				<div class="col-md-7 col-lg-5">
 					<div class="login-wrap p-4 p-md-5">
+
+						<!-- Tombol Kembali -->
+						<div class="form-group">
+							<a href="<?= base_url('/') ?>" class="btn btn-primary rounded">
+								<i class="fa fa-chevron-left" aria-hidden="true"></i>
+							</a>
+						</div>
+
 						<div class="icon d-flex align-items-center justify-content-center">
 							<span class="fa fa-user-o"></span>
 						</div>
@@ -47,9 +55,6 @@
 							<div class="form-group">
 								<button type="submit" class="form-control btn btn-primary rounded submit px-3">Masuk</button>
 							</div>
-							<div class="form-group">
-								<button type="button" class="form-control btn btn-warning rounded px-3" onclick="window.history.back();">Kembali</button>
-							</div>
 							<div class="form-group d-md-flex">
 								<div class="w-50">
 									<label class="checkbox-wrap checkbox-primary">Ingat Saya
@@ -67,6 +72,8 @@
 			</div>
 		</div>
 	</section>
+
+
 
 	<script src="admin/js/jquery.min.js"></script>
 	<script src="admin/js/popper.js"></script>

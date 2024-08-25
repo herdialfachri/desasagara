@@ -39,7 +39,7 @@
         <div class="container">
 
             <!-- Image Logo -->
-            <a class="navbar-brand logo-image" href="index.html"><img src="images/desa.png" alt="alternative"></a>
+            <a class="navbar-brand logo-image" href="#"><img src="images/desa.png" alt="alternative"></a>
 
             <!-- Text Logo - Use this if you don't have a graphic logo -->
             <!-- <a class="navbar-brand logo-text" href="index.html">Yavin</a> -->
@@ -164,6 +164,13 @@
                 <div class="col-lg-6">
                     <div class="text-container">
                         <h2>Jika ada pertanyaan silakan mengisi formulir dibawah ini</h2>
+
+                        <!-- Menampilkan Pesan Sukses -->
+                        <?php if (session()->getFlashdata('success')): ?>
+                            <div class="alert alert-success">
+                                <?= session()->getFlashdata('success'); ?>
+                            </div>
+                        <?php endif; ?>
 
                         <!-- Contact Form -->
                         <form action="<?= site_url('masukan/submit'); ?>" method="post">

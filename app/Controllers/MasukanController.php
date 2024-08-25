@@ -12,7 +12,7 @@ class MasukanController extends BaseController
 
         $data['masukan'] = $model->findAll();
 
-        return view('admin_view_masukan', $data);
+        return view('admin_masukan', $data);
     }
 
     public function submit()
@@ -28,6 +28,6 @@ class MasukanController extends BaseController
         $model->insert($data);
 
         // Setelah submit, kita bisa mengarahkan kembali ke halaman masukan atau memberikan pesan sukses
-        return redirect()->to('/')->with('success', 'Masukan berhasil disimpan.');
+        return redirect()->to('/#contact')->with('success', 'Masukan berhasil disampaikan, mohon tunggu jawaban.');
     }
 }
