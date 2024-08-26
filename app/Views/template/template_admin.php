@@ -58,30 +58,38 @@
 
             <!-- Nav Item - User -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/pemasukan">
                     <i class="fas fa-fw fa-arrow-down"></i>
                     <span>Uang Masuk</span></a>
             </li>
 
             <!-- Nav Item - Tambah Pengguna -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/pengeluaran">
                     <i class="fas fa-fw fa-arrow-up"></i>
                     <span>Uang Keluar</span></a>
             </li>
 
             <!-- Nav Item - Tambah Pengguna -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="fas fa-fw fa-dollar-sign"></i>
-                    <span>Saldo</span></a>
+                <a class="nav-link" href="/penggunaan_dana">
+                    <i class="fas fa-fw fa-handshake"></i>
+                    <span>Penggunaan Dana</span></a>
             </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Lainnya
+            </div>
 
             <!-- Nav Item - Tambah Pengguna -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="fas fa-fw fa-handshake"></i>
-                    <span>Penggunaan Dana</span></a>
+                <a class="nav-link" href="/kategori">
+                    <i class="fas fa-fw fa-list"></i>
+                    <span>Kategori</span></a>
             </li>
 
             <!-- Nav Item - Tambah Pengguna -->
