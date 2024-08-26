@@ -37,11 +37,18 @@
                         </select>
                     </div>
                     <div class="form-group">
+                        <label for="id_user">User</label>
+                        <select class="form-control" id="id_user" name="id_user" required>
+                            <option value="">Pilih User</option>
+                            <?php foreach ($users as $user): ?>
+                                <option value="<?= esc($user['id']); ?>"><?= esc($user['username']); ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="proyek">Proyek</label>
                         <input type="text" class="form-control" id="proyek" name="proyek" required>
                     </div>
-                    <!-- Input hidden untuk id_user diambil dari session -->
-                    <input type="hidden" name="id_user" value="<?= esc(session()->get('user_id')) ?>">
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>
             </div>

@@ -37,11 +37,18 @@
                         </select>
                     </div>
                     <div class="form-group">
+                        <label for="id_user">User</label>
+                        <select class="form-control" id="id_user" name="id_user" required>
+                            <option value="">Pilih User</option>
+                            <?php foreach ($users as $user): ?>
+                                <option value="<?= esc($user['id']); ?>" <?= $user['id'] == $penggunaan_dana['id_user'] ? 'selected' : '' ?>><?= esc($user['username']); ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="proyek">Proyek</label>
                         <input type="text" class="form-control" id="proyek" name="proyek" value="<?= esc($penggunaan_dana['proyek']) ?>" required>
                     </div>
-                    <!-- Input hidden untuk id_user, agar tidak bisa diubah -->
-                    <input type="hidden" name="id_user" value="<?= esc($penggunaan_dana['id_user']) ?>">
                     <button type="submit" class="btn btn-primary">Update</button>
                 </form>
             </div>
