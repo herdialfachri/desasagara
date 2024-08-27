@@ -21,7 +21,7 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>No</th>
                                 <th>Tanggal</th>
                                 <th>Jumlah</th>
                                 <th>Deskripsi</th>
@@ -37,7 +37,7 @@
                                     <tr>
                                         <td><?= esc($item['id']); ?></td>
                                         <td><?= esc($item['tanggal']); ?></td>
-                                        <td><?= esc($item['jumlah']); ?></td>
+                                        <td>Rp. <?= esc($item['jumlah']); ?></td>
                                         <td><?= esc($item['deskripsi']); ?></td>
                                         <td><?= esc($item['nama_kategori']); ?></td>
                                         <td><?= esc($item['proyek']); ?></td>

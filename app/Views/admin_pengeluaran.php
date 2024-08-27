@@ -37,7 +37,7 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>No</th>
                                 <th>Tanggal</th>
                                 <th>Jumlah Pengeluaran</th>
                                 <th>Kategori</th>

@@ -20,7 +20,7 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>No</th>
                                 <th>Nama Pengunjung</th>
                                 <th>Kontak</th>
                                 <th>Pesan</th>
