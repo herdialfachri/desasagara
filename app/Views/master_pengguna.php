@@ -4,12 +4,6 @@
 
 <?= $this->section('page_heading') ?>Daftar Pengguna<?= $this->endSection() ?>
 
-<?= $this->section('generate_report_button') ?>
-<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-    <i class="fas fa-download fa-sm text-white-50"></i> Download PDF
-</a>
-<?= $this->endSection() ?>
-
 <?= $this->section('content') ?>
 
 <!-- Content Row -->

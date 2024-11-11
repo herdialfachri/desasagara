@@ -19,7 +19,7 @@
     <meta name="twitter:card" content="summary_large_image"> <!-- to have large image post format in Twitter -->
 
     <!-- Webpage Title -->
-    <title>Website Pengelola PBB</title>
+    <title>Website Pengelola Keuangan</title>
 
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -80,7 +80,7 @@
             <div class="row">
                 <div class="col-lg-7 col-xl-5">
                     <div class="text-container">
-                        <h1 class="h1-large">Website Pengelola Keuangan PBB</h1>
+                        <h1 class="h1-large">Website Pengelola Keuangan</h1>
                         <p class="p-large">Desa Sagaranten, Kabupaten Sukabumi, Jawa Barat</p>
                         <a class="btn-solid-lg" href="#introduction">Selengkapnya</a>
                         <a class="btn-outline-lg" href="#contact">Hubungi Kami</a>

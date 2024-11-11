@@ -6,6 +6,8 @@ use App\Models\PenggunaanDanaModel;
 use App\Models\KategoriModel;
 use App\Models\UserModel;
 use CodeIgniter\Controller;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 class PenggunaanDanaController extends Controller
 {
@@ -73,5 +75,33 @@ class PenggunaanDanaController extends Controller
     {
         $this->penggunaanDanaModel->delete($id);
         return redirect()->to('/penggunaan_dana');
+    }
+
+    public function exportPdf()
+    {
+        // Load data dari model
+        $penggunaanDanaModel = new PenggunaanDanaModel();
+        $data['penggunaan_dana'] = $penggunaanDanaModel->findAll();
+
+        // Inisialisasi DomPDF
+        $options = new Options();
+        $options->set('isHtml5ParserEnabled', true);
+        $options->set('isRemoteEnabled', true);
+        $dompdf = new Dompdf($options);
+
+        // Load tampilan view untuk PDF
+        $html = view('penggunaanpdf', $data);
+
+        // Load HTML ke DomPDF
+        $dompdf->loadHtml($html);
+
+        // (Opsional) Set ukuran dan orientasi kertas
+        $dompdf->setPaper('A4', 'portrait');
+
+        // Render ke PDF
+        $dompdf->render();
+
+        // Output file PDF dengan opsi langsung download
+        $dompdf->stream("Laporan_Penggunaan_Dana.pdf", array("Attachment" => true));
     }
 }

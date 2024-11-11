@@ -50,3 +50,7 @@ $routes->post('penggunaan_dana/store', 'PenggunaanDanaController::store');
 $routes->get('penggunaan_dana/edit/(:num)', 'PenggunaanDanaController::edit/$1', ['filter' => 'auth']);
 $routes->post('penggunaan_dana/update/(:num)', 'PenggunaanDanaController::update/$1');
 $routes->get('penggunaan_dana/delete/(:num)', 'PenggunaanDanaController::delete/$1');
+
+$routes->get('pemasukan/exportPdf', 'PemasukanController::exportPdf');
+$routes->get('pengeluaran/exportPdf', 'PengeluaranController::exportPdf');
+$routes->get('penggunaan_dana/exportPdf', 'PenggunaanDanaController::exportPdf');

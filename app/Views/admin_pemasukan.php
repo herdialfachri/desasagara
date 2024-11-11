@@ -7,16 +7,25 @@
 <?= $this->section('content') ?>
 
 <div class="row">
+
     <!-- Filter Pemasukan dan Daftar Pemasukan -->
     <div class="col-lg-12">
         <div class="card shadow mb-4">
+
             <!-- Card Header -->
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">Pemasukan</h6>
-                <a href="<?= base_url('pemasukan/create') ?>" class="btn btn-primary btn-sm">Tambah Pemasukan</a>
+                <div class="d-flex">
+                    <a href="<?= base_url('pemasukan/exportPdf'); ?>" class="btn btn-success btn-sm mr-2">
+                        <i class="fas fa-download fa-sm text-white-50"></i> Unduh sebagai PDF
+                    </a>
+                    <a href="<?= base_url('pemasukan/create') ?>" class="btn btn-primary btn-sm">Tambah Pemasukan</a>
+                </div>
             </div>
+
             <!-- Card Body -->
             <div class="card-body">
+
                 <!-- Filter Pemasukan -->
                 <div class="mb-4">
                     <form action="<?= base_url('pemasukan') ?>" method="get">
@@ -32,6 +41,7 @@
                         </div>
                     </form>
                 </div>
+
                 <!-- Daftar Pemasukan -->
                 <div class="table-responsive">
                     <table class="table table-bordered">
@@ -56,11 +66,11 @@
                                         <td><?= esc($item['keterangan']); ?></td>
                                         <td>
                                             <!-- Tombol Edit -->
-                                            <a href="<?= base_url('pemasukan/edit/'.$item['id']) ?>" class="btn btn-warning btn-sm">
+                                            <a href="<?= base_url('pemasukan/edit/' . $item['id']) ?>" class="btn btn-warning btn-sm">
                                                 <i class="fas fa-edit"></i> Edit
                                             </a>
                                             <!-- Tombol Delete -->
-                                            <a href="<?= base_url('pemasukan/delete/'.$item['id']) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus item ini?');">
+                                            <a href="<?= base_url('pemasukan/delete/' . $item['id']) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus item ini?');">
                                                 <i class="fas fa-trash"></i> Delete
                                             </a>
                                         </td>

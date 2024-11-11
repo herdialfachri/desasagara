@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use App\Models\PemasukanModel;
 use App\Models\KategoriModel;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 class PemasukanController extends BaseController
 {
@@ -67,6 +69,34 @@ class PemasukanController extends BaseController
     {
         $this->pemasukanModel->delete($id);
         return redirect()->to('/pemasukan');
+    }
+
+    public function exportPdf()
+    {
+        // Load data dari model
+        $pemasukanModel = new PemasukanModel();
+        $data['pemasukan'] = $pemasukanModel->findAll();
+
+        // Inisialisasi DomPDF
+        $options = new Options();
+        $options->set('isHtml5ParserEnabled', true);
+        $options->set('isRemoteEnabled', true);
+        $dompdf = new Dompdf($options);
+
+        // Load tampilan view untuk PDF
+        $html = view('pemasukanpdf', $data);
+
+        // Load HTML ke DomPDF
+        $dompdf->loadHtml($html);
+
+        // (Opsional) Set ukuran dan orientasi kertas
+        $dompdf->setPaper('A4', 'portrait');
+
+        // Render ke PDF
+        $dompdf->render();
+
+        // Output file PDF dengan opsi langsung download
+        $dompdf->stream("Laporan_Pemasukan.pdf", array("Attachment" => true));
     }
 }
 
